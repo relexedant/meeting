@@ -1,5 +1,6 @@
 package com.gxc.meeting.controller;
 
+import com.gxc.meeting.domain.Meetingroom;
 import com.gxc.meeting.service.MeetingroomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,9 +16,14 @@ public class MeetingroomController {
     @RequestMapping("/meetingrooms")
     public String meetingrooms(Model model){
 
-
-
-        model.addAttribute("room",meetingroomService.getAll());
+        model.addAttribute("rooms",meetingroomService.getAll());
         return "meetingrooms";
+    }
+
+    @RequestMapping("/roomdetails")
+    public String roomdetails(int roomid,Model model){
+        Meetingroom meetingroom = meetingroomService.getMeetingRoom(roomid);
+        model.addAttribute("meetingroom",meetingroom);
+        return "roomdetails";
     }
 }

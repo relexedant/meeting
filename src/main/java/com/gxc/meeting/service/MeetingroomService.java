@@ -16,4 +16,8 @@ public class MeetingroomService {
     public List<Meetingroom> getAll() {
        return iMeetingroomDao.getAll();
     }
+
+    public Meetingroom getMeetingRoom(int roomid) {
+       return iMeetingroomDao.getMeetingRoom(roomid);
+    }
 }

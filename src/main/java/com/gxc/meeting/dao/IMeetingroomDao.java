@@ -9,4 +9,6 @@ public interface IMeetingroomDao {
 
 
     List<Meetingroom> getAll();
+
+    Meetingroom getMeetingRoom(int roomid);
 }

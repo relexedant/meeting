@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.gxc.meeting.dao.IDepartmentDao">
+
+    <select id="getAll" resultType="com.gxc.meeting.domain.Department">
+    select * from  department
+  </select>
+
+    <select id="getDepByName" resultType="com.gxc.meeting.domain.Department">
+    select * from  department where departmentname=#{departmentname}
+  </select>
+
+    <insert id="adddep">
+    insert into department (departmentname) values (#{department})
+  </insert>
+<!--    void deleteDep(int depid);-->
+   <insert id="deleteDep">
+    delete from department where departmentid= #{depid}
+  </insert>
+
+</mapper>

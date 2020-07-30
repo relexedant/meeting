@@ -22,11 +22,11 @@
                             <tr>
                                 <td>姓名：</td>
                                 <td>
-                                    <input type="text" name="employeename" id="employeename" maxlength="20"/>
+                                    <input type="text" name="employeename" id="employeename" value="<#if employee.employeename??>${employee.employeename}</#if>" maxlength="20"/>
                                 </td>
                                 <td>账号名：</td>
                                 <td>
-                                    <input type="text" name="username" id="accountname" maxlength="20"/>
+                                    <input type="text" name="username" id="accountname" value="<#if employee.username??>${employee.username}</#if>" maxlength="20"/>
                                 </td>
                                 <td>状态：</td>
                                 <td>

@@ -1,5 +1,6 @@
 package com.gxc.meeting.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.gxc.meeting.domain.Employee;
 import com.gxc.meeting.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class EmpController {
 
     @Autowired
     EmpService empService;
-    @RequestMapping("/searchemployees")
+//    @RequestMapping("/searchemployees") //原始分页
     public String EmpController(Employee employee, @RequestParam(defaultValue="1") int page, Model model){
         System.out.println("EmpController+searchemployees+employee"+employee);
         List<Employee> list = empService.getAllEmpByif(employee,page,PAGE_SIZE);
@@ -32,6 +33,29 @@ public class EmpController {
 
         return "searchemployees";
 
+
+    }
+
+
+    @RequestMapping("/searchemployees")
+    public String getAllEmpByPage(Employee employee, @RequestParam(defaultValue="1") int page,
+                                  @RequestParam(defaultValue="10")int pageSize, Model model){
+        System.out.println("EmpController+searchemployees+employee:所要筛选的员工类型"+employee);
+
+        Long total  = empService.getTotal(employee);
+        int pagex =(int)( total%PAGE_SIZE==0?total/PAGE_SIZE:total/PAGE_SIZE+1);
+        page = page>pagex?pagex:page;
+
+        PageInfo<Employee> pageInfo = empService.getAllEmpByif2(employee,page,PAGE_SIZE);
+
+        model.addAttribute("pageInfo",pageInfo);
+        model.addAttribute("total",total);
+        model.addAttribute("pageNum", pagex);
+//        model.addAttribute("page",page);
+
+
+
+        return "searchemployees2";
 
 
     }

@@ -26,4 +26,21 @@ public class MeetingroomController {
         model.addAttribute("meetingroom",meetingroom);
         return "roomdetails";
     }
+
+    @RequestMapping("/updatemeetingroom")
+    public String updatemeetingroom(Meetingroom meetingroom,Model model){
+        meetingroomService.updatemeetingroom(meetingroom);
+        return "roomdetails";
+    }
+    @RequestMapping("/admin/addmeetingroom")
+    public String addmeetingroom(){
+        return "addmeetingroom";
+    }
+    @RequestMapping("/admin/addmr")
+    public String addmr(Meetingroom meetingroom,Model model){
+        meetingroomService.addmr(meetingroom);
+
+        model.addAttribute("rooms",meetingroomService.getAll());
+        return "meetingrooms";
+    }
 }

@@ -8,6 +8,10 @@
         select * from employee where username = #{username}
     </select>
 
+    <select id="getAll" resultType="com.gxc.meeting.domain.Employee">
+        select * from employee
+    </select>
+
     <select id="getAllByStatus" resultType="com.gxc.meeting.domain.Employee">
         select * from employee where status = 0
     </select>
@@ -27,6 +31,19 @@
 
     </select>
 
+
+    <select id="getAllEmpByif2" resultType="com.gxc.meeting.domain.Employee">
+        select * from employee where status=#{emp.status}
+        <if test="emp.employeename!=null and emp.employeename != ''">
+            and employeename = #{emp.employeename}
+        </if>
+
+        <if test="emp.username!=null and emp.username != ''">
+            and username = #{emp.username}
+        </if>
+
+
+    </select>
 
     <select id="getTotal" resultType="java.lang.Long">
         select count(1) from employee where status=#{status}

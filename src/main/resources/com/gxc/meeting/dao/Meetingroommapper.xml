@@ -5,10 +5,18 @@
 
 
 <mapper namespace="com.gxc.meeting.dao.IMeetingroomDao">
-<select id="getAll" resultType="com.gxc.meeting.domain.Meetingroom">
-    select * from meetingroom
-</select>
-<select id="getMeetingRoom" resultType="com.gxc.meeting.domain.Meetingroom">
-select * from meetingroom where roomid=#{id}
-</select>
+    <select id="getAll" resultType="com.gxc.meeting.domain.Meetingroom">
+        select * from meetingroom
+    </select>
+    <select id="getMeetingRoom" resultType="com.gxc.meeting.domain.Meetingroom">
+         select * from meetingroom where roomid=#{id}
+    </select>
+    <insert id="updatemeetingroom">
+         update meetingroom set roomnum=#{roomnum} ,roomname=#{roomname} ,capacity=#{capacity}     ,status=#{status}, description=#{description} where roomid=#{roomid}
+    </insert>
+
+
+    <insert id="addmr">
+insert into  meetingroom (roomnum,roomname,capacity,status, description) values (#{roomnum} ,#{roomname} ,#{capacity}     ,#{status}, #{description});
+    </insert>
 </mapper>

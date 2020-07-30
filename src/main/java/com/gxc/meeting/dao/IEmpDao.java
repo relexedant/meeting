@@ -21,5 +21,7 @@ public interface IEmpDao {
 
     List<Employee> getAllEmpByif(@Param("emp")Employee employee, @Param("page") int page, @Param("pageSize") int pageSize);
 
+    List<Employee> getAllEmpByif2(@Param("emp")Employee employee);
+
     Long getTotal(Employee employee);
 }

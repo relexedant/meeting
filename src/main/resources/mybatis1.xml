@@ -13,20 +13,20 @@
         <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
     </plugins>
 
-<!--    <environments default="test">-->
-<!--        <environment id="test">-->
-<!--            <transactionManager type="JDBC"></transactionManager>-->
-<!--            <dataSource type="POOLED">-->
-<!--                <property name="driver" value="com.mysql.jdbc.Driver"/>-->
-<!--                <property name="url" value="jdbc:mysql:///meeting?useSSL=true&amp;serverTimezone=UTC&amp;characterEncoding=UTF-8&amp;verifyServerCertificate=false"/>-->
-<!--                <property name="username" value="root"/>-->
-<!--                <property name="password" value="123456"/>-->
-<!--            </dataSource>-->
-<!--        </environment>-->
-<!--    </environments>-->
-<!--<mappers>-->
-<!--    <mapper resource="com/gxc/meeting/dao/Empmapper.xml" />-->
-<!--</mappers>-->
+    <environments default="test">
+        <environment id="test">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql:///meeting?useSSL=true&amp;serverTimezone=UTC&amp;characterEncoding=UTF-8&amp;verifyServerCertificate=false"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+<mappers>
+    <mapper resource="com/gxc/meeting/dao/Empmapper.xml" />
+</mappers>
 <!--    <plugins>-->
 <!--        <plugin interceptor="com.github.pagehelper.PageInterceptor">-->
 <!--            &lt;!&ndash;分页参数合理化  &ndash;&gt;-->

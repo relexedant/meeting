@@ -24,7 +24,7 @@
             <#if rooms??>
                 <#list rooms as room>
                     <tr>
-                        <td>${room.roomid}</td>
+                        <td>${room.roomnum}</td>
                         <td>${room.roomname}</td>
                         <td>${room.capacity}</td>
                         <td><#if room.status??>

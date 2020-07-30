@@ -17,6 +17,17 @@ public class Employee {
     private String password;
     private String role;
 
+    public Employee(String employeename, String username, String phone, String email, String status, int departmentid, String password, String role) {
+        this.employeename = employeename;
+        this.username = username;
+        this.phone = phone;
+        this.email = email;
+        this.status = status;
+        this.departmentid = departmentid;
+        this.password = password;
+        this.role = role;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +

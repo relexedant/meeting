@@ -13,26 +13,26 @@
         <div class="content-nav">
             会议预定 > 修改会议室信息
         </div>
-        <form>
+        <form action="/updatemeetingroom?roomid=${meetingroom.roomid}" method="post">
             <fieldset>
                 <legend>会议室信息</legend>
                 <table class="formtable">
                     <tr>
                         <td>门牌号:</td>
                         <td>
-                            <input id="roomnumber" type="text" value="${meetingroom.roomnum}" maxlength="10"/>
+                            <input id="roomnumber" name="roomnum" type="text" value="${meetingroom.roomnum}" maxlength="10"/>
                         </td>
                     </tr>
                     <tr>
                         <td>会议室名称:</td>
                         <td>
-                            <input id="capacity" type="text" value="${meetingroom.roomname}" maxlength="20"/>
+                            <input id="capacity" type="text" name="roomname" value="${meetingroom.roomname}" maxlength="20"/>
                         </td>
                     </tr>
                     <tr>
                         <td>最多容纳人数：</td>
                         <td>
-                            <input id="roomcapacity" type="text" value="${meetingroom.capacity}"/>
+                            <input id="roomcapacity" type="text" name="capacity" value="${meetingroom.capacity}"/>
                         </td>
                     </tr>
                     <tr>
@@ -41,11 +41,11 @@
                             <#if meetingroom.status='0'>
                                 <input type="radio" id="status" name="status" checked="checked" value="0"/><label
                                     for="status">启用</label>
-                                <input type="radio" id="status" name="status"/><label for="status" value="1">已占用</label>
+                                <input type="radio" id="status" name="status" value="1" /><label for="status" value="1">已占用</label>
 
                             <#else ><input type="radio" id="status" name="status"  value="0"/><label
                                     for="status">启用</label>
-                                <input type="radio" id="status" name="status" checked="checked" /><label for="status" value="1">已占用</label>
+                                <input type="radio" id="status" name="status" checked="checked" value="1" /><label for="status" value="1">已占用</label>
 
 
                             </#if>
@@ -54,7 +54,7 @@
                     <tr>
                         <td>备注：</td>
                         <td>
-                            <textarea id="description" maxlength="200" rows="5" cols="60">${meetingroom.description}</textarea>
+                            <textarea id="description" name="description" maxlength="200" rows="5" cols="60">${meetingroom.description}</textarea>
                         </td>
                     </tr>
                     <tr>
